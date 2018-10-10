@@ -1,22 +1,30 @@
-let obj = {};
+function makeStrToObj() {
 
-function strToKey(str) {
+    let obj = {};
 
-    if (obj.hasOwnProperty(str)) {
-        obj[str] += 1;
-        return obj;
-    } else {
-        obj[str] = 1;
-        return obj;
+    return function (str) {
+
+        if (obj.hasOwnProperty(str)) {
+            obj[str] += 1;
+            return obj;
+        } else {
+            obj[str] = 1;
+            return obj;
+        }
     }
 
 }
 
-obj = strToKey('Jerry');
-obj = strToKey('Elaine');
-obj = strToKey('Elaine');
-obj = strToKey('Jerry');
-obj = strToKey('Kramer');
-console.log(obj);
 
-module.exports = strToKey;
+let newStrToObj = makeStrToObj();
+newStrToObj('Kramer');
+newStrToObj('Jerry');
+newStrToObj('Jerry');
+newStrToObj('Elaine');
+
+console.log(newStrToObj('Elaine'));
+newStrToObj('Elaine');
+newStrToObj('Elaine');
+console.log(newStrToObj('Newman'));
+
+module.exports = makeStrToObj;

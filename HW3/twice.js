@@ -7,8 +7,8 @@ function add5(x) {
     return x + 5;
 }
 
-let twoHeys = doTwice(add5);
-console.log(twoHeys);
+let twoFives = doTwice(add5);
+console.log(twoFives);
 
 
 module.exports = doTwice;
